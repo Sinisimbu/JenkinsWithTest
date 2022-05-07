@@ -1,0 +1,20 @@
+---
+execution:
+- concurrency: 50
+  hold-for: 3m
+  ramp-up: 3m
+  
+  scenario: Choose Flight
+ scenarios: 
+  Choose Flight: 
+    requests:
+    - label: jenkingsdemo
+      method: GET
+      url: https://dev.gsmtraders.in/joinmdmk_backend/
+    - label: reserve:
+      method: POST
+      url: https://dev.gsmtraders.in/joinmdmk_backend/index.php
+      body:
+        fromPort: paris
+        toPort: india
+      
